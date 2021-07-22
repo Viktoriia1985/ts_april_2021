@@ -148,6 +148,14 @@ class Client {
         this.age = age;
     }
 
+    getAge(): number {
+        return this.age;
+    }
+
+    setAge(value: number) {
+        this.age = value;
+    }
+
     setNewAge(newAge) {
         if (newAge > 0) {
             this.age = newAge;
@@ -172,10 +180,11 @@ enum Gender {
 function foobar2(gender) {
 
 }
+
 foobar2('dog');
 
 
-function foobar3(gender:Gender) {
+function foobar3(gender: Gender) {
     console.log(gender);
 }
 
