@@ -208,62 +208,81 @@
 
 
 enum Movement {
-    FLYING = 1,
-    RUNNING = 2,
-    SWIMMING = 3
+    FLYING = 'flying',
+    RUNNING = 'running',
+    SWIMMING = 'swimming'
+}
+enum Environment {
+    GROUND = 'ground',
+    SKY = 'sky',
+    WATER = 'water'
 }
 
 class Animal {
     typeOfAnimal: string;
-    environment: string;
+    environment: Environment;
     action: Movement;
 }
 
 class Cat implements Animal {
     typeOfAnimal: string;
-    environment: string;
-    action: Movement
+    environment: Environment;
+    action: Movement.RUNNING;
 
-    constructor(typeOfAnimal, environment, action) {
+    constructor(typeOfAnimal: string, environment: Environment, action: Movement.RUNNING) {
         this.typeOfAnimal = typeOfAnimal;
         this.environment = environment;
         this.action = action;
     }
+
+    showInfo(): void {
+        console.log(`ця тварина вміє ${this.action}`);
+    }
 }
 
-// class Bird implements Animal {
-//     typeOfAnimal: string;
-//     environment: string;
-//
-//     constructor(typeOfAnimal: string, environment: string) {
-//         this.typeOfAnimal = typeOfAnimal;
-//         this.environment = environment;
-//     }
-// }
-//
-// class Fish implements Animal {
-//     typeOfAnimal: string;
-//     environment: string;
-//
-//     constructor(typeOfAnimal: string, environment: string) {
-//         this.typeOfAnimal = typeOfAnimal;
-//         this.environment = environment;
-//     }
-// }
+class Bird implements Animal {
+    typeOfAnimal: string;
+    environment: Environment;
+    action: Movement.FLYING;
 
-let cat = new Cat('cat', 'ground', "FLcdYING");
-// let bird = new Bird('bird', 'sky');
-// let fish = new Fish('fish', 'water');
+    constructor(typeOfAnimal: string, environment: Environment, action: Movement.FLYING) {
+        this.typeOfAnimal = typeOfAnimal;
+        this.environment = environment;
+        this.action = action;
+    }
+
+    showInfo(): void {
+        console.log(`ця тварина вміє ${this.action}`);
+    }
+}
+
+class Fish implements Animal {
+    typeOfAnimal: string;
+    environment: Environment;
+    action: Movement.SWIMMING;
+
+    constructor(typeOfAnimal: string, environment: Environment, action: Movement.SWIMMING) {
+        this.typeOfAnimal = typeOfAnimal;
+        this.environment = environment;
+        this.action = action;
+    }
+
+    showInfo(): void {
+        console.log(`ця тварина вміє ${this.action}`);
+    }
+}
+
+let cat = new Cat('cat', Environment.GROUND, Movement.RUNNING);
+let bird = new Bird('bird', Environment.SKY, Movement.FLYING);
+let fish = new Fish('fish', Environment.WATER, Movement.SWIMMING);
+
 console.log(cat);
-// console.log(bird);
-// console.log(fish);
+console.log(bird);
+console.log(fish);
 
-
-// let animals: Animal[] = [
-//     new Cat('cat', 'ground'),
-//     new Bird('bird', 'sky'),
-//     new Fish('fish', 'water')
-// ];
+cat.showInfo();
+bird.showInfo();
+fish.showInfo();
 
 
 
